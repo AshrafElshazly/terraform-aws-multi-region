@@ -1,28 +1,41 @@
-# Terraform AWS Multi-Provider Project
+Terraform Project: AWS Multi-region Infrastructure as Code (IaC)
 
-This repository contains Terraform configuration files for provisioning AWS infrastructure across multiple regions. The project is organized into modules for managing different resources and includes separate directories for different projects deployed in different AWS regions.
+This Terraform project manages infrastructure resources on AWS in multiple regions (us-east-1 and us-wast-2) using modularized configurations.
 
-## Projects
+## Project Structure
 
-### Project_East1
+- **modules**: Contains reusable modules for configuring specific resources.
 
-This directory contains Terraform configuration for deploying infrastructure in the AWS (US-East-1) region.
+  - `dynamodb`: Configurations for DynamoDB tables.
+  - `instances`: Configurations for EC2 instances.
+  - `networks`: Configurations for VPCs, subnets, and network-related resources.
+  - `s3`: Configurations for S3 buckets.
 
-### Project_West2
-
-This directory contains Terraform configuration for deploying infrastructure in the AWS (US-West-2) region.
-
-## Modules
-
-- **dynamodb**: Manages DynamoDB tables.
-- **instances**: Manages EC2 instances.
-- **networks**: Manages VPCs, subnets, and other network-related resources.
-- **s3**: Manages S3 buckets.
+- **Project_East1**: Configuration for managing resources in the us-east-1 region.
+- **Project_West2**: Configuration for managing resources in the us-wast-2 region.
 
 ## Usage
 
-To use this modules:
+1. Clone the repository.
+2. Navigate to the desired project directory.
+3. Initialize Terraform using `terraform init`.
+4. Review and apply the configurations using `terraform apply`.
+5. Make any necessary adjustments or additions to the configurations.
 
-1. Clone the repository: git clone https://github.com/ashrafelshazly/terraform-aws-multi-region.git
-2. Review and customize the `terraform.tfvars` , `provider.tf`and other configuration files as needed.
-3. Apply the Terraform configuration: `terraform apply`
+## Getting Started
+
+Before getting started, ensure you have:
+
+- AWS account with necessary permissions and credentials configured.
+- Terraform installed on your local machine.
+
+To configure AWS access:
+
+1. Set up AWS credentials using AWS CLI or environment variables.
+2. Review the provider configurations in `provider.tf` files for each project.
+3. Modify the `terraform.tfvars` files to customize configurations for your environment.
+4. Refer to individual module files for detailed configurations and variables.
+
+## Contributors
+
+- [Ashraf Elshazly](https://github.com/ashrafelshazly)
